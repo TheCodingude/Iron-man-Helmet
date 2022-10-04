@@ -1,0 +1,43 @@
+{"intents":
+    [{  "tag":"greeting",
+        "patterns": ["hey", "Hello", "What's Up", "Hows it going?", "hi", "Greetings", "Jarvis"],
+        "response":"Hello, What Can i do for you?"},
+     {
+        "tag":"create_note",
+        "patterns":["Please create a new note", "new note", "create a note", "i want to create a new note"],
+        "response": []
+     },
+     {
+        "tag":"add_todo",
+        "patterns": ["i want to add a todo", "add a new todo", "add a todo to my list", "new item on my todo list"],
+        "response": []
+     },
+     {
+         "tag":"show_todos",
+         "patterns":["show my todos", "what are my todos", "what is on my todo list"],
+         "response": []
+     },
+     {
+         "tag":"exit",
+         "patterns": ["Bye", "exit", "close", "i would like to close", "goodbye", "turn off", "shut down"],
+         "response": []
+     },
+     {
+        "tag":"picture",
+        "patterns":["take a picture", "screenshot"],
+        "response": []
+     },
+     {
+        "tag":"start_record",
+        "patterns":["start recording", "record", "get this shit"],
+        "response": []
+     },
+     {
+      "tag":"end_record",
+      "patterns": ["stop recording", "end recording", "close recording"],
+      "response": []
+     }
+    ]
+}
+
+
