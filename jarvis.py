@@ -3,12 +3,16 @@ import speech_recognition
 import pyttsx3 as tts
 import sys
 import os
+import sight
+
+MODELS = "jarvis models/model"
+
+
 
 recongizer = speech_recognition.Recognizer()
 speaker = tts.init()
 speaker.setProperty('rate', 150)
 
-todo_list = []
 
 def create_note():
     global recongizer
@@ -73,7 +77,8 @@ def add_todo():
             speaker.say("I did not understand sorry")
 
 def hello():
-    pass
+    speaker.say("what can i do for you")
+    speaker.runAndWait()
 
 def start_recording():
     pass
@@ -82,24 +87,40 @@ def end_recording():
     pass
 
 def show_todos():
-    pass
+    if os.path.exists("todos.txt"):
+        lines = open("todos.txt", "r").readlines()
+        if not lines:
+            speaker.say("there are no items on your to do list")
+            speaker.runAndWait()
+            return
+        speaker.say("the items on your to do list are")
+        for line in lines:
+            speaker.say(line)
+        speaker.runAndWait()
+    else:
+        speaker.say("There are no items on your to do list")
+        speaker.runAndWait()
 
 def leave():
-    pass
+    speaker.say("goodbye sir")
+    speaker.runAndWait()
+    # os.system("shutdown /s /t 0")
 
 mappings = {"greeting": hello, "create_note": create_note, "add_todo":add_todo, "show_todos": show_todos, "exit": leave, "start_record":start_recording, "end_record":end_recording}
 
 assistant = GenericAssistant('intents.json', intent_methods=mappings)
 
-if os.path.exists("model.h5"):
-    assistant.load_model("model")
+if os.path.exists("jarvis models/model.h5") and os.path.exists("jarvis models/model_words.pkl") and os.path.exists("jarvis models/model_classes.pkl"):
+    assistant.load_model(MODELS)
 else:
     assistant.train_model()
-    assistant.save_model("model")
+    assistant.save_model(MODELS)
+
+
+
 
 speaker.say("Hello Sir!")
 speaker.runAndWait()
-
 
 while True:
 
