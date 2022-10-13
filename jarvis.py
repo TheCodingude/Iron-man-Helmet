@@ -3,7 +3,7 @@ import speech_recognition
 import pyttsx3 as tts
 import sys
 import os
-import sight
+
 
 MODELS = "jarvis models/model"
 
@@ -110,11 +110,11 @@ mappings = {"greeting": hello, "create_note": create_note, "add_todo":add_todo, 
 
 assistant = GenericAssistant('intents.json', intent_methods=mappings)
 
-if os.path.exists("jarvis models/model.h5") and os.path.exists("jarvis models/model_words.pkl") and os.path.exists("jarvis models/model_classes.pkl"):
-    assistant.load_model(MODELS)
-else:
-    assistant.train_model()
-    assistant.save_model(MODELS)
+# if os.path.exists("jarvis models/model.h5") and os.path.exists("jarvis models/model_words.pkl") and os.path.exists("jarvis models/model_classes.pkl"):
+#     assistant.load_model(MODELS)
+# else:
+assistant.train_model()
+    # assistant.save_model(MODELS)
 
 
 
