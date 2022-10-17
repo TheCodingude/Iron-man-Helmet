@@ -18,4 +18,7 @@ that includes jarvis
 
 <br>
 
+## i have decided that v1 wont have object detection even though it would be very cool its also very expensive and i dont know enough about it to make my own model
+
+
 also i dont really dont know markdown lol 
