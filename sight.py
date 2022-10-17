@@ -1,4 +1,4 @@
-import cv2
+# import cv2
 import jarvis
 
 class Sight:
@@ -14,3 +14,6 @@ class Sight:
     def sight(self):
         pass
 
+
+
+    
