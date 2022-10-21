@@ -6,6 +6,8 @@ const thrdRecent = document.getElementById("thirdRecent");
 const all = document.getElementById("all");
 
 
+// all = "lol";
+
 function getBatteryPercent(){
 
     let percent = "4%";
@@ -25,8 +27,10 @@ function getBatteryPercent(){
     }
 }
 
+getBatteryPercent();
+
 
 all.addEventListener("click", () => {
-    console.log("Clicked")
-})
+    window.location.href = "history.html";
+});
 

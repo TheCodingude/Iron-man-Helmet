@@ -36,6 +36,11 @@
       "tag":"end_record",
       "patterns": ["stop recording", "end recording", "close recording"],
       "response": []
+     },
+     {
+      "tag":"click_history",
+      "patterns":["View History", "View command history", "command history", "click history"],
+      "response":[]
      }
     ]
 }

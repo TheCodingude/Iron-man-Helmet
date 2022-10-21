@@ -1,0 +1,69 @@
+h1{
+    font-size: 65px;
+    background-color: red;
+    width: 330px;
+    margin-top: 0%;
+    margin: 0%;
+    text-align: center;
+}
+.batteryContainer {
+    transform: translate(100px, 2px);
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.batteryOuter {
+    border-radius: 3px;
+    border: 1px solid #444;
+    padding: 1px;
+    width: 100px;
+    height: 20px;
+  
+}
+.batteryBump {
+    border-radius: 2px;
+    background-color: #444;
+    margin: 2px;
+    width: 4px;
+    height: 6px;
+}
+#batteryLevel {
+    border-radius: 4px;
+    background-color: #73AD21;
+    height: 100%;
+}
+#percent{
+    padding-left: 5px;
+    padding-bottom: 4px;
+    font-size: 25px;
+    font-family: "sans";
+}
+#commandHistory{
+    box-shadow: 20px 20px 50px 15px grey;
+    width: 250px;
+    height: 270px;
+}
+#all{
+    cursor: pointer;
+    width: fit-content;
+    transform: translate(1200px, -140px);
+}
+.history{
+    border: 3px solid grey;
+    height: 33%;
+}
+#h2{
+  
+    transform: translate(27px);
+}
+
+body{
+   
+    margin: 0;
+    padding: 0;
+}
+ 

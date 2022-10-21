@@ -11,7 +11,9 @@
 
 that includes jarvis 
 
-<br>
+
+
+<hr>
 
 
 ### i still need to find a object detection model becuase i cant get the one that i was going to use

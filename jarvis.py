@@ -1,6 +1,7 @@
 from neuralintents import GenericAssistant
 import speech_recognition
 import pyttsx3 as tts
+from webcontrol import *
 import sys
 import os
 
@@ -29,11 +30,11 @@ def create_note():
         try:
             with speech_recognition.Microphone() as mic:
 
-                recongizer.adjust_for_ambient_noise(mic, duration=0.2)
+                recongizer.adjust_for_ambient_noise(mic, duration=0.2)  # type: ignore
                 audio = recongizer.listen(mic)
 
                 note = recongizer.recognize_google(audio)
-                note = note.lower()
+                note = note.lower()    # type: ignore
 
 
             with open("notes.txt", "a") as f:
@@ -61,11 +62,11 @@ def add_todo():
 
             with speech_recognition.Microphone() as mic:
                 
-                recongizer.adjust_for_ambient_noise(mic, duration=0.2)
+                recongizer.adjust_for_ambient_noise(mic, duration=0.2)  # type: ignore
                 audio = recongizer.listen(mic)
 
                 item = recongizer.recognize_google(audio)
-                item = item.lower()
+                item = item.lower()  # type: ignore
 
                 with open("todos.txt", "a") as f:
                     f.write(item)
@@ -106,15 +107,15 @@ def leave():
     speaker.runAndWait()
     # os.system("shutdown /s /t 0")
 
-mappings = {"greeting": hello, "create_note": create_note, "add_todo":add_todo, "show_todos": show_todos, "exit": leave, "start_record":start_recording, "end_record":end_recording}
-
+mappings = {"greeting": hello, "create_note": create_note, "add_todo":add_todo, "show_todos": show_todos, "exit": leave, "start_record":start_recording, "end_record":end_recording, "click_history":commandHistory}
+start()
 assistant = GenericAssistant('intents.json', intent_methods=mappings)
 
 # if os.path.exists("jarvis models/model.h5") and os.path.exists("jarvis models/model_words.pkl") and os.path.exists("jarvis models/model_classes.pkl"):
 #     assistant.load_model(MODELS)
 # else:
 assistant.train_model()
-    # assistant.save_model(MODELS)
+assistant.save_model(MODELS)
 
 
 
@@ -127,12 +128,12 @@ while True:
     try:
         with speech_recognition.Microphone() as mic:
 
-            recongizer.adjust_for_ambient_noise(mic, duration=0.2)
+            recongizer.adjust_for_ambient_noise(mic, duration=0.2)  # type: ignore
             audio = recongizer.listen(mic)
 
 
             message = recongizer.recognize_google(audio)
-            message = message.lower()
+            message = message.lower()  # type: ignore
 
         assistant.request(message)
     except speech_recognition.UnknownValueError:
